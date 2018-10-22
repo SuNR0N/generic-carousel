@@ -2,32 +2,17 @@ import React, { Component } from 'react';
 
 import { IImage } from '../../interfaces/Image';
 import { CarouselItem } from '../carousel-item/CarouselItem';
-import { IHaveCarouselService } from './index';
 
-// tslint:disable:no-empty-interface
-export interface IProps extends IHaveCarouselService { }
-
-export interface IState {
-  items: IImage[];
-  activeIndex: number;
+export interface IProps {
+  items?: IImage[];
 }
 
-export class Carousel extends Component<IProps, IState> {
-  public state: IState = {
-    activeIndex: -1,
-    items: [1 as any],
-  };
-
-  public async componentDidMount() {
-    const images = await this.props.carouselService.loadImages();
-    this.setState({ items: images });
-  }
-
+export class Carousel extends Component<IProps> {
   public render() {
     const {
       renderItem,
-      state: {
-        items,
+      props: {
+        items = [],
       },
     } = this;
 

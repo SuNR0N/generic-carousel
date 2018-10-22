@@ -1,22 +1,40 @@
 import React, { Component, ComponentType } from 'react';
 
-import { ICarouselService } from '../../services/CarouselService';
+import { IImage } from 'src/interfaces/Image';
 import { PixabayService } from '../../services/PixabayService';
-import { Carousel } from './Carousel';
+import {
+  Carousel,
+  IProps,
+} from './Carousel';
 
-export interface IHaveCarouselService {
-  carouselService: ICarouselService;
+export interface IWithPixabayServiceState {
+  items: IImage[];
 }
 
-const withPixabayService = <P extends object>(WrappedComponent: ComponentType<P & IHaveCarouselService>) => {
-  class WithPixabayService extends Component<P & IHaveCarouselService> {
+const withPixabayService = <P extends object>(WrappedComponent: ComponentType<P & IProps>) => {
+  class WithPixabayService extends Component<P, IWithPixabayServiceState> {
+    public state: IWithPixabayServiceState = {
+      items: [],
+    };
+
+    private pixabayService = PixabayService.getInstance();
+
+    public async componentDidMount() {
+      const images = await this.pixabayService.loadImages();
+      this.setState({ items: images });
+    }
+
     public render() {
-      const pixabayService = new PixabayService();
+      const {
+        state: {
+          items,
+        },
+      } = this;
 
       return (
         <WrappedComponent
-          carouselService={pixabayService}
           {...this.props}
+          items={items}
         />
       );
     }
@@ -24,4 +42,4 @@ const withPixabayService = <P extends object>(WrappedComponent: ComponentType<P 
   return WithPixabayService;
 }
 
-export const PixabayCarousel: any = withPixabayService(Carousel);
+export const PixabayCarousel = withPixabayService(Carousel);
