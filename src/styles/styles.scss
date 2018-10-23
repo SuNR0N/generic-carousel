@@ -1,6 +1,17 @@
+/*------------------------------------*\
+  ABSTRACTS
+\*------------------------------------*/
 @import 'abstracts/variables';
 
+/*------------------------------------*\
+  BASE
+\*------------------------------------*/
+@import 'base/typography';
 @import 'base/body';
 
+/*------------------------------------*\
+  COMPONENTS
+\*------------------------------------*/
 @import 'components/carousel-item';
 @import 'components/carousel';
+@import 'components/icon';

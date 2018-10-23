@@ -1,0 +1,17 @@
+$font-path: '../assets/fonts';
+$font-family-ropa-sans-italic-filename: 'RopaSans-Italic';
+$font-family-ropa-sans-regular-filename: 'RopaSans-Regular';
+
+@font-face {
+  font-family: 'Ropa Sans';
+  src: url('#{$font-path}/#{$font-family-ropa-sans-regular-filename}.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ropa Sans';
+  src: url('#{$font-path}/#{$font-family-ropa-sans-italic-filename}.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}

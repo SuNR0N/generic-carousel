@@ -8,14 +8,11 @@ export interface IProps {
 
 export const CarouselItem: SFC<IProps> = (props) => {
   const { image } = props;
-  let className = 'carousel-item';
-  if (image.active) {
-    className = `${className} active`;
-  }
 
   return (
-    <div className={className}>
+    <figure className="carousel-item">
       <img src={image.src} alt={image.title} />
-    </div>
+      <figcaption>{image.title}</figcaption>
+    </figure>
   );
 }

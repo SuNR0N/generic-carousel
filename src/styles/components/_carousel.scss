@@ -1,0 +1,159 @@
+.carousel {
+  &__header {
+    background-color: $gray;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 0 1rem;
+    overflow: hidden;
+  }
+
+  &__control-prev,
+  &__control-next {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: $white;
+    text-align: center;
+    opacity: .5;
+    margin: auto;
+
+    &-icon {
+      width: 100%;
+      position: relative;
+      height: 100%;
+
+      .icon {
+        position: absolute;
+      }
+    }
+
+    > span {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__control-prev {
+    left: -3rem;
+    justify-content: flex-start;
+
+    &-icon {
+      .icon {
+        transform: rotate(180deg);
+        right: 0.8rem;
+        bottom: 1.2rem;
+      }
+    }
+  }
+
+  &__control-next {
+    right: -3rem;
+    justify-content: flex-end;
+
+    &-icon {
+      .icon {
+        left: 0.8rem;
+        top: 1.2rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    &__control-prev,
+    &__control-next {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    &__control-prev {
+      left: -4rem;
+
+      &-icon {
+        .icon {
+          right: 1.5rem;
+          bottom: 2.2rem;
+        }
+      }
+    }
+
+    &__control-next {
+      right: -4rem;
+
+      &-icon {
+        .icon {
+          left: 1.5rem;
+          top: 2.2rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    &__inner {
+      flex-flow: row wrap;
+      margin: 0;
+    }
+
+    &__controls {
+      background-color: $gray;
+      display: flex;
+      flex-basis: 100%;
+      justify-content: center;
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+
+    &__control-prev,
+    &__control-next {
+      position: initial;
+      justify-content: center;
+      margin: initial;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      background: $blue;
+      border-radius: initial;
+      margin: 0 0.25rem;
+      opacity: 1;
+      color: $white;
+
+      &-icon {
+        display: none;
+      }
+
+      &:hover {
+        background: lighten($blue, 5%);
+      }
+
+      > span {
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+
+    &__control-prev {
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+
+    &__control-next {
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+  }
+}

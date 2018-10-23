@@ -4,6 +4,6 @@ import { PixabayCarousel } from './components/carousel';
 
 export const App = () => (
   <main>
-    <PixabayCarousel />
+    <PixabayCarousel title="Carousel Test" />
   </main>
 );

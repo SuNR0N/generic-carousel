@@ -22,10 +22,9 @@ export class PixabayService extends CarouselService {
       { mode: 'cors' }
     );
     const result: IPixabayResultsDTO = await response.json();
-    return result.hits.map((hit, index) => {
+    return result.hits.map((hit) => {
       const image: IImage = {
-        active: index === 0,
-        src: hit.previewURL,
+        src: hit.webformatURL,
         title: hit.tags,
       };
       return image;

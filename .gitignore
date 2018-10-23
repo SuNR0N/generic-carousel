@@ -22,3 +22,6 @@ yarn-error.log*
 
 # Private README
 README.private.md
+
+# styles
+/src/**/*.css
