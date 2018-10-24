@@ -1,5 +1,5 @@
 describe('withPixabayService', () => {
   it('', () => {
-    //
+    // TODO
   });
 });

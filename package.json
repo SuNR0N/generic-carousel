@@ -8,13 +8,16 @@
     "react-scripts-ts": "3.1.0"
   },
   "scripts": {
+    "build": "npm run css:build && react-scripts-ts build",
     "css:build": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "css:watch": "yarn css:build && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "eject": "react-scripts-ts eject",
+    "lint:fix": "tslint --fix -p tsconfig.prod.json",
+    "lint": "tslint -p tsconfig.prod.json",
     "start:ts": "react-scripts-ts start",
     "start": "npm-run-all -p css:watch start:ts",
-    "build": "npm run css:build && react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "test:coverage": "react-scripts-ts test --env=jsdom --coverage"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.14",
